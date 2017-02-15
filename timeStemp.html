@@ -1,0 +1,41 @@
+<html>
+   <head>
+
+   </head>
+	
+   <body>
+	<p id="demo">Click the button to change the text in this paragraph.</p>
+	<button onclick="myFunction()">Try it</button>
+	
+<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAPU8g4W0hm0jzHj4KW3DdhKtBM2mcbxZo",
+    authDomain: "timestemp-825f6.firebaseapp.com",
+    databaseURL: "https://timestemp-825f6.firebaseio.com",
+    storageBucket: "timestemp-825f6.appspot.com",
+    messagingSenderId: "75714723699"
+  };
+  firebase.initializeApp(config);
+  var hellowWord;
+  var root = firebase.database().ref();
+	root.on('value', function(snap){
+	hellowWord = snap.val();
+	console.log(snap.val())
+	});
+	
+	function myFunction() {
+    document.getElementById("demo").innerHTML = hellowWord;
+}
+</script>
+
+<script>
+
+</script>
+	
+	<h1></h1>
+
+   </body>
+	
+</html>
